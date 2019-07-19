@@ -56,27 +56,35 @@
                         <Submenu name="1">
                             <template slot="title">
                                 <Icon type="ios-navigate"></Icon>
-                                Item 1
+                                用户中心
                             </template>
-                            <MenuItem name="1-1">Option 1</MenuItem>
-                            <MenuItem name="1-2">Option 2</MenuItem>
-                            <MenuItem name="1-3">Option 3</MenuItem>
+
+                            <MenuItem name="1-1">
+                                <router-link to="/test">用户列表</router-link>
+                            </MenuItem>
+                            <MenuItem name="1-2">登录记录</MenuItem>
+                            <MenuItem name="1-3">授信记录</MenuItem>
                         </Submenu>
                         <Submenu name="2">
                             <template slot="title">
                                 <Icon type="ios-keypad"></Icon>
-                                Item 2
+                                部门管理
                             </template>
-                            <MenuItem name="2-1">Option 1</MenuItem>
-                            <MenuItem name="2-2">Option 2</MenuItem>
+                            <MenuItem name="2-1">
+                                <router-link to="/dept/dept-list">部门列表</router-link>
+                            </MenuItem>
+                            <MenuItem name="2-2">
+                                <router-link to="/user/user-list">员工列表</router-link>
+                            </MenuItem>
                         </Submenu>
                         <Submenu name="3">
                             <template slot="title">
                                 <Icon type="ios-analytics"></Icon>
-                                Item 3
+                                权限管理
                             </template>
-                            <MenuItem name="3-1">Option 1</MenuItem>
-                            <MenuItem name="3-2">Option 2</MenuItem>
+                            <MenuItem name="3-1">权限列表</MenuItem>
+                            <MenuItem name="3-2">菜单列表</MenuItem>
+                            <MenuItem name="3-2">用户授权</MenuItem>
                         </Submenu>
                     </Menu>
                 </Sider>
@@ -87,7 +95,7 @@
                         <BreadcrumbItem>Layout</BreadcrumbItem>
                     </Breadcrumb>
                     <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
-                        Content
+                        <router-view></router-view>
                     </Content>
                 </Layout>
             </Layout>
@@ -96,6 +104,6 @@
 </template>
 <script>
     export default {
-        name: "Buttom"
+        name: "Main"
     }
 </script>
