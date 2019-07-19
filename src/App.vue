@@ -1,21 +1,57 @@
 <template>
-  <div id="app">
-	<ButtonTest></ButtonTest>
-	<router-view></router-view>
-  </div>
+    <div id="app">
+        <Button></Button>
+        <!--<router-view></router-view>-->
+        <h1>{{title}}</h1>
+        <h3>{{user.name}} 年龄：{{user.age}},性别：{{user.sex}}</h3>
+        <h4 v-for="user in list">{{user.name}}</h4>
+        <div v-bind:title="title">鼠标点击看一下</div>
+        <div v-html="h"></div>
+        <div v-text="title"></div>
+        <form>
+            <input v-model="title" type="text">
+            <button @click="getMsg">点击</button>
+        </form>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import ButtonTest from './components/Button.vue'
+    import HelloWorld from './components/HelloWorld.vue'
+    import Button from './components/Button.vue'
 
-
-export default {
-  name: 'app',
-  components: {
-    ButtonTest
-  }
-}
+    export default {
+        name: 'app',
+        components: {
+            Button
+        },
+        data(){
+            return {
+                title: "标题",
+                user: {name: "向文山", age: 30, sex: "男"},
+                list: [
+                    {name: "向文山", age: 30, sex: "男"},
+                    {name: "孙权", age: 30, sex: "男"},
+                    {name: "孙尚香", age: 23, sex: "女"}
+                ],
+                h: "<h1>呵呵</h1>"
+            }
+        },
+        methods: {
+            getMsg: function () {
+                alert(this.title + this.user.name)
+                this.$http.get('/test').then(response => {
+                    // get body data
+                    this.title = response.body;
+                }, response => {
+                    // error callback
+                    alert(response)
+                });
+            }
+        },
+        mounted(){
+            console.info("this is mounted")
+        }
+    }
 </script>
 
 <style>
