@@ -7,6 +7,7 @@ import VueResource from 'vue-resource'
 import UserList from './components/UserList.vue'
 import DeptList from './components/DeptList.vue'
 import Test from './components/Test.vue'
+import Global from './components/Global.vue'
 
 import iView from 'iview'; // 导入组件库
 import 'iview/dist/styles/iview.css'; // 导入样式
@@ -15,6 +16,7 @@ Vue.config.productionTip = false
 Vue.use(iView);
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.prototype.GLOBAL = Global;
 
 
 // 2. 定义路由

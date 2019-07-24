@@ -30,7 +30,7 @@
         methods: {
             getMsg: function () {
                 alert(this.title + this.user.name)
-                this.$http.get('/test').then(response => {
+                this.$http.get(this.GLOBAL.host + '/spring-user/user/insertUser').then(response => {
                     // get body data
                     this.title = response.body;
                 }, response => {
